@@ -65,6 +65,12 @@ requirements:
     - "Head of"
     - "Chief"
     - "C-Level"
+    - "בינוי"
+    - "בנייה"
+    - "קבלנ"
+    - "מגורים"
+    - "תשתיות"
+    - "עבודות עפר"
 
   # Only include jobs from these companies (leave empty [] to accept all)
   companies_include: []

@@ -60,7 +60,7 @@ def apply_requirements(jobs: list[Job], req: dict, platforms: dict = None) -> li
     }
     result = [
         j for j in result
-        if j.source.lower() in israeli_sources or _is_israeli_location(j.location)
+        if j.source.lower() in israeli_sources or _is_israeli_location(j.location) or not j.location
     ]
     log.info(f"After Israel location filter: {len(result)}/{original}")
 
