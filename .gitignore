@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+*.pyo
+
+# Output data
+job_results.csv
+job_results_partial.csv
+*.log
+
+# Environment variables — real API keys
+.env
+
+# Claude Code local settings
+.claude/
+
+# Sensitive config — copy from config.example.yaml and fill in keys
+job-scraper/config.yaml

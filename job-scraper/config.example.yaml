@@ -1,0 +1,129 @@
+# ─────────────────────────────────────────────
+#  ACTIVE PLATFORMS  –  comment out to disable
+# ─────────────────────────────────────────────
+active_platforms:
+  - alljobs
+  - drushim
+  - linkedin
+  # - comeet
+
+# ─────────────────────────────────────────────
+#  KEYWORDS  –  what to search for on job boards
+# ─────────────────────────────────────────────
+keywords:
+  english:
+    - "Product Manager"
+    # - "APM"
+    # - "PM"
+    # - "Product Owner"
+    # - "Project Manager"
+    # - "PMO"
+
+  hebrew:
+    # - "מנהל מוצר"
+    # - "מנהל/ת מוצר"
+    # - "מנהל.ת מוצר"
+    # - "מנהל פרויקט"
+    - "מנהל/ת פרויקט"
+    # - "מנהל.ת פרויקט"
+    # - "מנהל פרוייקט"
+    # - "מנהל/ת פרוייקט"
+    # - "מנהל.ת פרוייקט"
+    # - "מנהל פרויקטים"
+    # - "מנהל/ת פרויקטים"
+    # - "מנהל.ת פרויקטים"
+    # - "מנהל פרוייקטים"
+    # - "מנהל/ת פרוייקטים"
+    # - "מנהל.ת פרוייקטים"
+
+
+# ─────────────────────────────────────────────
+#  REQUIREMENTS  –  what kind of job you want
+#  Edit this section to filter results to your needs.
+# ─────────────────────────────────────────────
+requirements:
+
+  # Only keep jobs posted within this many days
+  max_age_days: 7
+
+  # Preferred locations (leave empty [] to accept all)
+  # Normalized names: "Tel Aviv-Yafo", "Herzliya", "Remote", "Ramat Gan", etc.
+  locations: []
+
+  # Seniority levels to include (leave empty [] to accept all)
+  # Options: junior, mid, senior, lead, director
+  seniority: []
+
+  # Job titles that MUST contain at least one of these words (case-insensitive)
+  # Leave empty [] to accept all titles
+  title_must_include: []
+
+  # Jobs whose title contains any of these words will be excluded
+  title_exclude:
+    - "Director"
+    - "VP"
+    - "Head of"
+    - "Chief"
+    - "C-Level"
+
+  # Only include jobs from these companies (leave empty [] to accept all)
+  companies_include: []
+
+  # Skip jobs from these companies
+  companies_exclude: []
+
+  # Only include jobs that mention at least one of these tech/domain keywords
+  # in the title (leave empty [] to skip this filter)
+  domain_keywords: []
+
+
+# ─────────────────────────────────────────────
+#  COMEET KEYWORDS  –  focused list to save SerpAPI quota (100/month free)
+#  10 keywords × 3 pages = 30 searches per run → 3 runs/month budget
+# ─────────────────────────────────────────────
+comeet_keywords:
+  - "Product Manager"
+  - "Project Manager"
+  - "מוצר"
+  - "פרויקטים"
+
+
+# ─────────────────────────────────────────────
+#  PLATFORMS  –  which job boards to scrape
+# ─────────────────────────────────────────────
+platforms:
+  alljobs:
+    base_url: "https://www.alljobs.co.il"
+    is_israeli: true   # Israeli site – skip location filter
+
+  drushim:
+    base_url: "https://www.drushim.co.il"
+    is_israeli: true   # Israeli site – skip location filter
+
+  linkedin:
+    base_url: "https://www.linkedin.com/jobs/search/"
+    location: "Israel" # passed as search param
+    is_israeli: false  # global site – enforce location filter
+
+  comeet:
+    base_url: "https://www.comeet.com"
+    is_israeli: false  # global site – enforce location filter
+
+
+# ─────────────────────────────────────────────
+#  SCRAPING  –  technical settings
+# ─────────────────────────────────────────────
+scraping:
+  max_pages_per_keyword: 3
+  delay_min: 2          # seconds between requests (min)
+  delay_max: 5          # seconds between requests (max)
+  retry_attempts: 3
+  retry_backoff_base: 2
+
+
+# ─────────────────────────────────────────────
+#  OUTPUT
+# ─────────────────────────────────────────────
+output:
+  csv_file: "job_results.csv"
+  partial_save_interval: 10   # save partial results every N keywords
